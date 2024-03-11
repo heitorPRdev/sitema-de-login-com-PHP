@@ -28,6 +28,39 @@
         </form>
         <p>já tem uma conta?<br><a href="/sitema-de-login-com-PHP/cadastro/">Cadastrar</a></p>
     </section>
-    
+     
+    <?php 
+        $nomeForm = $_POST['nome'] ?? '';
+        $senhaForm = $_POST['senha'] ?? '';
+        
+        if($nome && $senhaForm){
+            $hostname="127.0.0.1";
+            $username="testegit";
+            $password="testegit";
+            $dbname="clientes";
+            
+            $conn = new mysqli($hostname,$username,$password,$dbname);
+            if(!$conn){
+                die("Connect failed". mysqli_connect_error());
+            }
+            
+            $query = "SELECT nome,senha FROM cadastros";
+            $databaseSearch = $conn->query($query);
+            $result = $databaseSearch->fetch_all(MYSQLI_ASSOC);
+            for($cont = 0; $cont < sizeof($result); $cont++){
+                if($result[$cont]["nome"] == $nomeForm && $result[$cont]["senha"] == $senhaForm){
+                    header("location:/sitema-de-login-com-PHP/profile/");
+                }else{
+                    echo "nome ou senha não existe";
+                }
+
+                mysqli_close($conn);
+            }
+
+        }else{
+            echo "Prencha todos os campos";
+        }
+        
+    ?>
 </body>
 </html>

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,6 +30,29 @@
         </form>
         <p>já tem uma conta?<br><a href="/sitema-de-login-com-PHP/login/">login</a></p>
     </section>
+   
+    <?php 
+        $nomeForm = $_POST['nome'];
+        $senhaForm = $_POST['senha'];
+        if($nome && $senhaForm){
+            $hostname="127.0.0.1";
+            $username="testegit";
+            $password="testegit";
+            $dbname="clientes";
+            $conn = new mysqli($hostname,$username,$password,$dbname);
+            if(!$conn){
+                die("Connect failed". mysqli_connect_error());
+            }
+            
+            $query = "INSERT INTO cadastros (nome,senha) VALUES ('$nome','$senha')";
+            $conn->query($query);
+
+            mysqli_close($conn);
+
+        }else{
+            echo "Prencha todos os campos";
+        }
     
+    ?>
 </body>
 </html>
