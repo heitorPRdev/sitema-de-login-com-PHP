@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,13 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-        $nome = $_POST["nome"] ?? '';
-        $senha = $_POST["senha"]  ?? '';
     
-    ?>    
 
-
+    <?php 
+        $nomeForm = $_POST['nome'] ?? '';
+        $senhaForm = $_POST['senha'] ?? '';
+         
+    
+    ?>
 
     <header><h1>Cadastrar</h1></header>    
 
@@ -23,19 +22,21 @@
     <section>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
             <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome" value="<?=$nome?>">
+            <input type="text" name="nome" id="nome" value="<?=$nomeForm?>">
             <label for="senha">Senha</label>
-            <input type="password" name="senha" id="senha" value="<?=$senha?>">
+            <input type="password" name="senha" id="senha" value="<?=$nomeForm?>">
             <input type="submit" value="Cadastrar" name="Cadastrar">
         </form>
         <p>já tem uma conta?<br><a href="/sitema-de-login-com-PHP/login/">login</a></p>
     </section>
    
     <?php 
-        //inserir criptografia nos nomes dos cadastro e depois nos de login
-        $nomeForm = $_POST['nome'] ?? '';
-        $senhaForm = $_POST['senha'] ?? '';
-        if($nome && $senhaForm){
+       
+       
+        if($nomeForm && $senhaForm){
+            $nomeCript = md5($nomeForm);
+            $senhaCript = md5($senhaForm);
+
             $hostname="127.0.0.1";
             $username="testegit";
             $password="testegit";
@@ -50,28 +51,30 @@
             $tam_result = sizeof($result) ?? 0;
             if($result == NULL){
                 
-                $query2 = "INSERT INTO cadastros (nome,senha) VALUES ('$nome','$senha')";
+                $query2 = "INSERT INTO cadastros (nome,senha) VALUES ('$nomeCript','$senhaCript')";
                 $conn->query($query2);
-                
+                mysqli_close($conn);
     
             }else{
                 for($cont = 0; $cont < $tam_result ; $cont++){
                     
-                    if($result[$cont]["nome"] == $nomeForm){
+                    if($result[$cont]["nome"] == $nomeCript){
     
                         echo '<div id="divError"><p>Nome de usuario já existente</p></div>';
+                        mysqli_close($conn);
                         break;
                     }else{
-                        $query2 = "INSERT INTO cadastros (nome,senha) VALUES ('$nome','$senha')";
+                        $query2 = "INSERT INTO cadastros (nome,senha) VALUES ('$nomeCript','$senhaCript')";
                         $conn->query($query2);
-                        
+                        mysqli_close($conn);
+                        setcookie("NameCad", $nomeForm, time()+864000,'/');
                         break;
                         
                     }
                 }
             }
             
-            mysqli_close($conn);
+           
             
         }else{
             if(isset($_POST['Cadastrar']) && $nomeForm == '' && $senhaForm == ''){
