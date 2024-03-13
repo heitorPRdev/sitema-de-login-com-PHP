@@ -31,8 +31,7 @@
     </section>
    
     <?php 
-       
-       
+        
         if($nomeForm && $senhaForm){
             $nomeCript = md5($nomeForm);
             $senhaCript = md5($senhaForm);
