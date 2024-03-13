@@ -24,7 +24,7 @@
             <label for="nome">Nome</label>
             <input type="text" name="nome" id="nome" value="<?=$nomeForm?>">
             <label for="senha">Senha</label>
-            <input type="password" name="senha" id="senha" value="<?=$nomeForm?>">
+            <input type="password" name="senha" id="senha" value="<?=$senhaForm?>">
             <input type="submit" value="Cadastrar" name="Cadastrar">
         </form>
         <p>já tem uma conta?<br><a href="/sitema-de-login-com-PHP/login/">login</a></p>
@@ -56,22 +56,22 @@
                 mysqli_close($conn);
     
             }else{
-                for($cont = 0; $cont < $tam_result ; $cont++){
+                for($cont = 0; $cont < $tam_result; $cont++){
                     
                     if($result[$cont]["nome"] == $nomeCript){
-    
+                     
                         echo '<div id="divError"><p>Nome de usuario já existente</p></div>';
-                        mysqli_close($conn);
-                        break;
+                        
                     }else{
                         $query2 = "INSERT INTO cadastros (nome,senha) VALUES ('$nomeCript','$senhaCript')";
                         $conn->query($query2);
-                        mysqli_close($conn);
+                        
                         setcookie("NameCad", $nomeForm, time()+864000,'/');
-                        break;
+                        
                         
                     }
                 }
+                mysqli_close($conn);
             }
             
            
