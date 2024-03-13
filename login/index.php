@@ -38,7 +38,7 @@
     </section>
     
     <?php 
-        if($_COOKIE['NameCad']){
+        if($_COOKIE['NameCad'] ?? 0){
             echo "<div id='GoProfileDiv'><h1>Verificamos o seu login, deseja ir direto a sua conta?</h1><button id='GOProfile'>Ir</button></div>";
         }else{
             if($nomeForm && $senhaForm){

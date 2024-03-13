@@ -12,6 +12,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
@@ -21,22 +26,17 @@
         <p>Muito obrigado por visitar esse site</p>
         
     </section>
+    
     <section>
-        <h2>Atenção você já está usando um cookie <?='NameCad'?></h2>
-        <p>Deseja retiralo?</p>
-        
-        <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-            <input type="submit" value="Excluir cookie" name="Excluir-cookie">
-    
-        </form>
-
+        <button id="GoConfig">Ir paras as configurações</button>
     </section>
-    <?php 
-        // if(isset($_POST['Excluir-cookie'])){
-        //     //Excluir cookie
-            
-        // }
-    
-    ?>
+    <script>
+        $(document).ready(function(){
+            $('#GoConfig').on('click', function(){
+                window.open("/sitema-de-login-com-PHP/profile/config");
+            })
+        })
+
+    </script>
 </body>
 </html>
