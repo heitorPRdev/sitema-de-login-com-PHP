@@ -1,16 +1,5 @@
-<?php 
-    //se existir cookie NameCad(O nome do úsuario)
-    if($_COOKIE['NameCad']){
-        $nome = $_COOKIE['NameCad'];
-    }else{
-        //se não será redirecionado para fazer um login
-        header("location:/sitema-de-login-com-PHP/login/");
-    }
-    
-    
-?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,23 +23,9 @@
             <a href="/sitema-de-login-com-PHP/cadastro/" style="padding-left: 10px;">cadastro</a>
         </div>
     </header>
-
-
-
-    <section>
-        <h1>Olá, <?=$nome?>! seja bem vindo</h1>
-        <p>Muito obrigado por visitar esse site</p>
-        
-    </section>
     
-    <section>
-        <button id="GoConfig"><i class="fa-solid fa-gear" style="color: #000000;"></i> configurações</button>
-    </section>
     <script>
         $(document).ready(function(){
-            $('#GoConfig').on('click', function(){
-                window.open("/sitema-de-login-com-PHP/profile/config",'_self');
-            })
             $("#IniBtn").on('click',()=>{
                 window.open('/sitema-de-login-com-PHP/','_self')
             })

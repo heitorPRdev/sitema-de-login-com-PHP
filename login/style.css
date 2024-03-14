@@ -117,3 +117,19 @@ button{
     margin: 5px;
 }
 
+
+#exitBtn{
+    transition: 0.5s;
+    background:none;
+    border-style: none;
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 2px;
+    left: 0%;
+}
+#exitBtn:hover{
+    font-size: 42px;
+    color: rgb(112, 0, 0);
+
+}
