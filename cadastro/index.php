@@ -106,7 +106,7 @@
      <script>
         $(document).ready(function(){
             $('#exitBtn').on('click',()=>{
-                window.open('/sitema-de-login-com-PHP/','_self')
+                window.open('/','_self')
             })
         })
     </script>
