@@ -1,6 +1,15 @@
 {
     "functions":{
-        "api/*.php":{
+        "api/cadastro/*.php":{
+            "runtime":"vercel-php@0.6.1"
+        },
+        "api/login/*.php":{
+            "runtime":"vercel-php@0.6.1"
+        },
+        "api/profile/*.php":{
+            "runtime":"vercel-php@0.6.1"
+        },
+        "api/profile/config/*.php":{
             "runtime":"vercel-php@0.6.1"
         }
     }
