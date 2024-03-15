@@ -104,6 +104,7 @@
     
     ?>
      <script>
+        import './api/cadastro/style.css';
         $(document).ready(function(){
             $('#exitBtn').on('click',()=>{
                 window.open('/','_self')

@@ -110,6 +110,7 @@
                 window.open('/','_self')
             })
         })
+        
     </script>
 </body>
 </html>
