@@ -4,7 +4,7 @@
         $nome = $_COOKIE['NameCad'];
     }else{
         //se não será redirecionado para fazer um login
-        header("location:/sitema-de-login-com-PHP/login/");
+        header("location:/api/login/");
     }
     
     
@@ -43,14 +43,14 @@
         //se o botão de deslogar for clicado apaga os cookies e o enviará ao login
         if(isset($_POST['deslogar'])){
             setcookie('NameCad', '',time()-864000, '/');
-            header("location:/sitema-de-login-com-PHP/login/");
+            header("location:/api/login/");
         }
     
     ?>
     <script>
         $(document).ready(function(){
             $('#exitBtn').on('click',()=>{
-                window.open('/sitema-de-login-com-PHP/profile/')
+                window.open('/api/profile/')
             })
         })
     </script>

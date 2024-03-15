@@ -35,7 +35,7 @@
             <input type="password" name="senha" id="senha" value="<?=$senhaForm?>" require=true>
             <input type="submit" value="Logar" name='Logar'>
         </form>
-        <p>já tem uma conta?<br><a href="/sitema-de-login-com-PHP/cadastro/">Cadastrar</a></p>
+        <p>já tem uma conta?<br><a href="/api/cadastro/">Cadastrar</a></p>
     </section>
     
     <?php 
@@ -71,7 +71,7 @@
                         setcookie("NameCad", $nomeForm, time()-864000,'/');
                         setcookie("NameCad", $nomeForm, time()+864000,'/');
                         //redireciona para a pagina do profile
-                        header("location:/sitema-de-login-com-PHP/profile/");
+                        header("location:/api/profile/");
                         
                     }else{
                         //se a senha ou nome estiver errada
@@ -104,10 +104,10 @@
     <script>
         $(document).ready(function(){
             $('#GOProfile').on('click',function(){
-                window.open('/sitema-de-login-com-PHP/profile/','_self')
+                window.open('/api/profile/','_self')
             })
             $('#exitBtn').on('click',()=>{
-                window.open('/sitema-de-login-com-PHP/','_self')
+                window.open('/','_self')
             })
         })
     </script>

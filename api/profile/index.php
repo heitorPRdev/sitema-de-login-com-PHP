@@ -4,7 +4,7 @@
         $nome = $_COOKIE['NameCad'];
     }else{
         //se não será redirecionado para fazer um login
-        header("location:/sitema-de-login-com-PHP/login/");
+        header("location:/api/login/");
     }
     
     
@@ -30,8 +30,8 @@
         </button> 
         <div id="logCadLin">
                 
-            <a href="/sitema-de-login-com-PHP/login/">login</a>
-            <a href="/sitema-de-login-com-PHP/cadastro/" style="padding-left: 10px;">cadastro</a>
+            <a href="/api/login/">login</a>
+            <a href="/api/cadastro/" style="padding-left: 10px;">cadastro</a>
         </div>
     </header>
 
@@ -49,10 +49,10 @@
     <script>
         $(document).ready(function(){
             $('#GoConfig').on('click', function(){
-                window.open("/sitema-de-login-com-PHP/profile/config",'_self');
+                window.open("/api/profile/config",'_self');
             })
             $("#IniBtn").on('click',()=>{
-                window.open('/sitema-de-login-com-PHP/','_self')
+                window.open('/','_self')
             })
         })
 

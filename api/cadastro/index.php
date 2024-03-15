@@ -9,7 +9,7 @@
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
         crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/api/cadastro/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -39,7 +39,7 @@
             <input type="password" name="senha" id="senha" value="<?=$senhaForm?>">
             <input type="submit" value="Cadastrar" name="Cadastrar">
         </form>
-        <p>já tem uma conta?<br><a href="/sitema-de-login-com-PHP/login/">login</a></p>
+        <p>já tem uma conta?<br><a href="/api/login/">login</a></p>
     </section>
    
     <?php 
